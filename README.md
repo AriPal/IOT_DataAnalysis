@@ -1,0 +1,1 @@
+School project using Raspberry PI model 3 to push data to cloud service for data collection, then use the .CSV file for data analysis.  
