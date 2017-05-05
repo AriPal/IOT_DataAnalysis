@@ -6,25 +6,23 @@ import matplotlib.pyplot as plt
 import pdb
 from pandas import *
 import datetime
-
-headers = ['col1', 'col2', 'col3'] 
-dtypes = [datetime, float, float] 
+from matplotlib.dates import DateFormatter
 
 # Read from the CSV file
-data = read_csv('GoogleCloudTest.csv', header=None, names=headers, parse_dates=True)
+data = read_csv('GoogleCloudTest.csv')
 
-#parse_dates = data['Date / Time']
-
+# Get Data from CSV file
 t = data['Date / Time']
-#x = data['CPU Usage %']
-#y = data['Temperature C']
+x = data['CPU Usage %']
+y = data['Temperature C']
+
+# Labels 
 
 
-#t = datetime.datetime(2012, 2, 23, 0, 0)
-#t.strftime('%m/%d/%Y')
-
-print(t)
-#plt.plot(t)
-#plt.show()
+#Plot data into diagram
+plt.plot_date(t,x, 'b-')
+plt.plot_date(t,y, 'g-')
+plt.gcf().autofmt_xdate()
+plt.show()
 
 
