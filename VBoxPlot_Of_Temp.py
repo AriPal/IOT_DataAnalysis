@@ -17,12 +17,13 @@ t = data['Date / Time']
 x = data['CPU Usage %']
 y = data['Temperature C']
 
-#Plot Histogram
-plt.plot_date(t,x, 'b-', color='r')
-plt.plot_date(t,y, 'g-', color='b')
+# Histogram of cpu_usage
+plt.figure()
+plt.boxplot(y,1)
+
 plt.gcf().autofmt_xdate()
-plt.xlabel("Time")
+plt.ylabel("Temperature in C")
 plt.legend()
-plt.title('GodMode: Time Series')
+plt.title('GodMode: Vertical Box Plot of Temperature')
 plt.show()
 

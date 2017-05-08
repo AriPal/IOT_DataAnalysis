@@ -1,4 +1,3 @@
-
 #Include library
 import numpy as np 
 from scipy import stats 
@@ -17,12 +16,13 @@ t = data['Date / Time']
 x = data['CPU Usage %']
 y = data['Temperature C']
 
-#Plot Histogram
-plt.plot_date(t,x, 'b-', color='r')
-plt.plot_date(t,y, 'g-', color='b')
+# Horizontal Boxplot
+plt.figure()
+plt.boxplot(y,1, vert=False)
 plt.gcf().autofmt_xdate()
-plt.xlabel("Time")
-plt.legend()
-plt.title('GodMode: Time Series')
-plt.show()
+plt.xlabel("CPU Usage %")
+plt.title('GodMode: Horizontal Box Plot of CPU Usage %')
 
+#General 
+plt.legend()
+plt.show()

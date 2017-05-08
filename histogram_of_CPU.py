@@ -9,7 +9,7 @@ import datetime
 from matplotlib.dates import DateFormatter
 
 # Read from the CSV file
-data = read_csv('GoogleCloudTest.csv')
+data = read_csv('Test.csv')
 
 
 # Get Data from CSV file
@@ -17,12 +17,14 @@ t = data['Date / Time']
 x = data['CPU Usage %']
 y = data['Temperature C']
 
-#Plot Histogram
-plt.plot_date(t,x, 'b-', color='r')
-plt.plot_date(t,y, 'g-', color='b')
-plt.gcf().autofmt_xdate()
-plt.xlabel("Time")
-plt.legend()
-plt.title('GodMode: Time Series')
-plt.show()
+#Partition data into "boxes"
+bins = [0,10,20,30,40,50,60,70,80,100]
 
+# Histogram of cpu_usage
+plt.hist(x, bins, normed=1, histtype='bar', rwidth=0.9)
+plt.gcf().autofmt_xdate()
+plt.xlabel("CPU Usage %")
+plt.ylabel("Probability")
+plt.legend()
+plt.title('GodMode: Histogram Showing CPU USAGE')
+plt.show()

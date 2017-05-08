@@ -17,12 +17,14 @@ t = data['Date / Time']
 x = data['CPU Usage %']
 y = data['Temperature C']
 
-#Plot Histogram
-plt.plot_date(t,x, 'b-', color='r')
-plt.plot_date(t,y, 'g-', color='b')
-plt.gcf().autofmt_xdate()
-plt.xlabel("Time")
-plt.legend()
-plt.title('GodMode: Time Series')
-plt.show()
+#Partition data into "boxes"
+bins = [0,10,20,30,40,50,60,70,80,100]
 
+# Histogram showing temperature
+plt.hist(y, bins, normed=1, histtype='bar', rwidth=0.9)
+plt.gcf().autofmt_xdate()
+plt.xlabel("Temperature in C")
+plt.ylabel("Probability")
+plt.legend()
+plt.title('GodMode: Histogram showing Temperature')
+plt.show()
