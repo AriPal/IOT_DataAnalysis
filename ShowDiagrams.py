@@ -57,7 +57,7 @@ plt.xlabel("Temperature in C")
 plt.ylabel("Probability")
 plt.title('GodMode: Histogram showing Temperature')
 
-# Linear regression
+# Linear regressionn
 slope, intercept = np.polyfit(x, y, 1)
 line = [slope * i + intercept for i in x]
 plt.figure()
