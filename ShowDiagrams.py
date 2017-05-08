@@ -16,6 +16,12 @@ t = data['Date / Time']
 x = data['CPU Usage %']
 y = data['Temperature C']
 
+#Plot Histogram
+plt.plot_date(t,x, 'b-', color='r')
+plt.plot_date(t,y, 'g-', color='b')
+plt.gcf().autofmt_xdate()
+plt.xlabel("Time")
+plt.title('GodMode: Time Series')
 
 # Vertical Boxplot
 plt.figure()
@@ -48,6 +54,19 @@ plt.gcf().autofmt_xdate()
 plt.xlabel("Temperature in C")
 plt.ylabel("Probability")
 plt.title('GodMode: Histogram showing Temperature')
+
+# Linear regression
+# Find the slope and intercept of the best fit line
+slope, intercept = np.polyfit(x, y, 1)
+line = [slope * i + intercept for i in x]
+plt.figure()
+plt.plot(x, y, 'ro')
+plt.plot(x, line, 'b')
+plt.gcf().autofmt_xdate()
+plt.ylabel("Temperature in C")
+plt.xlabel("CPU Usage %")
+plt.title('GodMode: Linear regression')
+
 
 
 
