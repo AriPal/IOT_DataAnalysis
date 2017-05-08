@@ -8,7 +8,7 @@ import datetime
 from matplotlib.dates import DateFormatter
 
 # Read from the CSV file
-data = read_csv('GoogleCloudTest.csv')
+data = read_csv('rawdata.csv')
 
 
 # Get Data from CSV file
@@ -40,6 +40,15 @@ plt.gcf().autofmt_xdate()
 plt.xlabel("CPU Usage %")
 plt.ylabel("Probability")
 plt.title('GodMode: Histogram Showing CPU USAGE')
+
+# Histogram - Temperature in C
+plt.figure()
+plt.hist(y, bins, normed=1, histtype='bar', rwidth=0.9)
+plt.gcf().autofmt_xdate()
+plt.xlabel("Temperature in C")
+plt.ylabel("Probability")
+plt.title('GodMode: Histogram showing Temperature')
+
 
 
 #General 
